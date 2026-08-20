@@ -1,0 +1,11 @@
+{
+  "projects": {},
+  "targets": {},
+  "etags": {
+    "katanayaka-booking-v2": {
+      "extensionInstances": {
+        "firestore-send-email": "510979435425b4e17b46e59020a3bc9d9573082e2a1da9f7d09900e457549501"
+      }
+    }
+  }
+}
