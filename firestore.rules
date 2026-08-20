@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    match /shows/{showId} {
+      allow read: if true;
+      allow write: if false;
+
+      match /seats/{seatId} {
+        allow read: if true;
+        allow write: if false;
+      }
+    }
+
+    match /reservations/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /paymentSessions/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /paymentEvents/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /auditLogs/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /mail/{id} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /rateLimits/{id} {
+      allow read, write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
