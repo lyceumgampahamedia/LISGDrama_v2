@@ -1,0 +1,14 @@
+node_modules/
+dist/
+functions/node_modules/
+functions/lib/
+.firebase/
+firebase-debug*.log
+deployment-log.txt
+.env
+.env.*
+!.env.example
+service-account*.json
+*.pem
+.DS_Store
+Thumbs.db
